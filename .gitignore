@@ -44,7 +44,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-src/app/commun/modal/modal.component.css
-src/app/commun/modal/modal.component.html
-src/app/commun/modal/modal.component.spec.ts
-src/app/commun/modal/modal.component.ts
