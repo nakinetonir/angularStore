@@ -1,4 +1,37 @@
-<p-table [value]="bets" class="table">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th *ngFor="let col of cols">
+      {{col.header}}
+  </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let bet of bets">
+    <td *ngFor="let col of cols">
+       {{bet[col.field]}}
+       <div *ngIf="col.field=='acciones'" name="acciones" >
+        <div
+         
+        >
+          <button
+            *ngFor="let action of actions"
+             type="button"
+            placement="bottom"
+            (click)="openMethod(action.event['id'],bet)"
+          >
+            <em
+              class="{{ action.cssClass }}"
+            ></em>
+          </button>
+        </div>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!--<p-table [value]="bets" class="table">
   <ng-template pTemplate="header">
       <tr>
           <th *ngFor="let col of cols">
@@ -29,4 +62,4 @@
           </td>
       </tr>
   </ng-template>
-</p-table>
+</p-table>-->

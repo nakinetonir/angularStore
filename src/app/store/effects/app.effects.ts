@@ -44,7 +44,7 @@ export class BetEffects {
 
     // Add Customer
     @Effect()
-    addCustomer$ : Observable<Action> = this.actions$.pipe(
+    addBet$ : Observable<Action> = this.actions$.pipe(
         ofType(fromBetActions.POST_BETS),
         map((action : fromBetActions.PostBets) => action.payload),
         switchMap((payload) => this.betservice.postBets(payload)

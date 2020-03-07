@@ -1,1 +1,30 @@
-<p>modal works!</p>
+<!--<p-dialog header="Title" [(visible)]="display" [closable]="false" styleClass="mydialog">
+    <div class="row">
+        <ng-content></ng-content>
+    </div>
+   
+    <div class="row justifiy-content-center">
+       <div class="col-md-12">
+            <button pButton type="button" class="btn-block" label="Apostar" ></button>
+        </div>
+       
+    </div>
+</p-dialog>
+-->
+<div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body">
+    <form>
+        <div class="form-group">
+            <input id="Winner" type="text" class="form-control" placeholder="Ganardor" [(ngModel)]="betUser.winner" name="winner">
+        </div>
+        <div class="form-group">
+            <input id="Bet" type="number" class="form-control" placeholder="Apuesta" [(ngModel)]="betUser.bet_user_money" name="betMoney">
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-warning" [disabled]="desabledValue()"(click)="closeModal(betUser)">Apostar</button>
+    <button type="button" class="btn btn-outline-dark" (click)="closeModal(null)">Cerrar</button>
+</div>

@@ -1,16 +1,16 @@
 
-import * as fromBetActions from '../actions/bet.action';
-import { Bet } from '../../models/Bet'
-export interface BetState
+import * as fromBetUserActions from '../actions/betUser.action';
+import { BetUser } from '../../models/BetUser'
+export interface BetUserState
 {
-    bet: Bet[];
+    betUser: BetUser[];
    loaded : boolean;
     loading : boolean;
     error: string;
 }
 
-export const defaultBet : BetState = {
-    bet: [],
+export const defaultBetUser : BetUserState = {
+    betUser: [],
     loading: false,
     loaded: false,
     error: ''
@@ -18,16 +18,16 @@ export const defaultBet : BetState = {
 
 
 
-export function reducer(state = defaultBet , action : fromBetActions.BetActions){
+export function reducer(state = defaultBetUser , action : fromBetUserActions.BetUserActions){
 
     switch(action.type){
-        case fromBetActions.LOAD_BETS: {
+        case fromBetUserActions.LOAD_BETSUSER: {
             return {
                 ...state,
                 loading: true
             }
         }
-        case fromBetActions.LOAD_BETS_SUCCESS: {
+        case fromBetUserActions.LOAD_BETSUSER_SUCCESS: {
             const bet = action.payload
             return {
                 ...state,
@@ -36,7 +36,7 @@ export function reducer(state = defaultBet , action : fromBetActions.BetActions)
                 bet
             }
         }
-        case fromBetActions.LOAD_BETS_FAIL: {
+        case fromBetUserActions.LOAD_BETSUSER_FAIL: {
             return {
                 ...state,
                 loading: false,
@@ -44,28 +44,28 @@ export function reducer(state = defaultBet , action : fromBetActions.BetActions)
                 error : action.payload
             }
         }
-        case fromBetActions.UPDATE_BETS_SUCCESS: {
-            let data = state.bet.map(bet=>
+        case fromBetUserActions.UPDATE_BETSUSER_SUCCESS: {
+            let data = state.betUser.map(betUser=>
                     {
-                        if(bet.id == action.payload.id)
+                        if(betUser.id == action.payload.id)
                         {
                             return action.payload;
                         }
                         else
                         {
-                            return bet;
+                            return betUser;
                         }
                     }    
                 )
                 return {
                     ...state,
-                    bet : data,
+                    betUser : data,
                     loaded: true,
                     loading: false,
                 }
             
         }
-        case fromBetActions.UPDATE_BETS_FAIL: {
+        case fromBetUserActions.UPDATE_BETSUSER_FAIL: {
             return {
                 ...state,
                 loading: false,
@@ -73,13 +73,13 @@ export function reducer(state = defaultBet , action : fromBetActions.BetActions)
                 error : action.payload
             }
         }
-        case fromBetActions.POST_BETS_SUCCESS: {
+        case fromBetUserActions.POST_BETSUSER_SUCCESS: {
            return {
                 ...state,
-                bet : [...state.bet, action.payload]
+                betUser : [...state.betUser, action.payload]
             }
         }
-        case fromBetActions.POST_BETS_FAIL: {
+        case fromBetUserActions.POST_BETSUSER_FAIL: {
             return {
                 ...state,
                 loading: false,
@@ -87,16 +87,16 @@ export function reducer(state = defaultBet , action : fromBetActions.BetActions)
                 error : action.payload
             }
         }
-        case fromBetActions.DEL_BETS_SUCCESS: {
-            const bets = action.payload
+        case fromBetUserActions.DEL_BETSUSER_SUCCESS: {
+            const betsUser = action.payload
             return {
                 ...state,
                 loading: false,
                 loaded: true,
-                bet : action.payload
+                betUser : action.payload
             }
         }
-        case fromBetActions.DEL_BETS_FAIL: {
+        case fromBetUserActions.DEL_BETSUSER_FAIL: {
             return {
                 ...state,
                 loading: false,
@@ -112,7 +112,7 @@ export function reducer(state = defaultBet , action : fromBetActions.BetActions)
 
 
 
-export const getBets = (state: BetState) => state.bet;
-export const getBetsLoaded = (state: BetState) => state.loaded;
-export const getBetsLoading = (state: BetState) => state.loading;
-export const getBetsError = (state: BetState) => state.error;
+export const getBetsUser = (state: BetUserState) => state.betUser;
+export const getBetsUserLoaded = (state: BetUserState) => state.loaded;
+export const getBetsUserLoading = (state: BetUserState) => state.loading;
+export const getBetsUserError = (state: BetUserState) => state.error;

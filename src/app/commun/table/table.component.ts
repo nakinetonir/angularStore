@@ -12,7 +12,7 @@ export class TableComponent implements OnInit {
   @Input('bets') bets: Array<any>;
   @Input('cols') cols: Array<Column>;
   @Input('actions') actions: Array<Action>;
- @Output() actionMethod: EventEmitter<any> = new EventEmitter();
+ @Output() actionMethod: EventEmitter<object> = new EventEmitter();
   
   placeholderValue: string = 'Search';
 
@@ -24,7 +24,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.bets)
   }
-  openMethod(eventId: number, row: any) {
+  openMethod(eventId: number, row:any) {
     this.actionMethod.emit({ eventId, row });
   }
 

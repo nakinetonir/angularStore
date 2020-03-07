@@ -2,7 +2,7 @@ export class Bet {
     id: number;
     active: number;
     bet_money: number;
-    cration_date: Date;
+    creation_date: Date;
     emision: string;
     estado: number;
     evento: string;
