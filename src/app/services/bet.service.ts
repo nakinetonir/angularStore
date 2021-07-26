@@ -49,28 +49,4 @@ export class BetService {
   }
 }
 
-/*
- postProfitabilitySheetMain(sheetMain: ProfitabilitySheetMain): Observable<any> {
-    return this.http.post(
-      `${this.baseUrl}/postProfitabilitySheetMain`,
-      JSON.stringify(sheetMain),
-      httpOptions
-    );
-  }
 
-  /**
-   
-  updateProfitabilitySheetMain(sheetMain: ProfitabilitySheetMain, id: number): Observable<any> {
-    return this.http.put(
-      `${this.baseUrl}/putProfitabilitySheetMain/${id}`,
-      JSON.stringify(sheetMain),
-      httpOptions
-    );
-  }
-
- 
-  deleteProfitabilitySheetMain(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/deleteProfitabilitySheetMain/${id}`, httpOptions);
-  }
-
-*/
